@@ -45,7 +45,7 @@ log("info", `Starting MySQL MCP server v${version}...`);
 
 // Update tool description to include multi-DB mode and schema-specific permissions
 const toolVersion = `MySQL MCP Server [v${process.env.npm_package_version}]`;
-let toolDescription = `[${toolVersion}] Run SQL queries against MySQL database`;
+let toolDescription = `[${toolVersion}] Run SQL queries against MySQL database. If multiple queries are required, execute them strictly sequentially, one query at a time. Never run multiple queries in parallel, concurrently, or as overlapping tool calls. Wait until the previous query has fully completed and its result has been returned before executing the next query`;
 
 if (isMultiDbMode) {
   toolDescription += " (Multi-DB mode enabled)";
